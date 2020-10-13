@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<!--
+ASSIGNMENT RULES
+- The solution must be pushed to the repository and be available for the tutors by the end of the day.
+- You can ask for tutor's help.
+- You can google / use StackOverflow BUT we suggest you to use just the material provided.
+- To test the page, just open it with your default browser.
+- Use Bootstrap4 classes to render the page.
+- Use correctly containers and rows in order to achieve a great display.
+ASSIGNMENT TOPIC
+You are creating a website to showcase your favourite music albums.
+In this page you'd like to have a short bio of yourself, the top albums of your life, 
+the worst album you ever listen to and everything related to the music you love.
+NOTE:
+Most of the times, even the most expert of designers needs inspiration.
+Spend 30 minutes surfing the web and searching for the way of rapresenting album that you like the most.
+Could be the Amazon way, the Spotify or Apple music way or some other blog out there. Musik Wahl
+-->
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <!-- IMPORT ALL THE BOOTSTRAP RELATED CSS & SCRIPTS-->
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+
+    <title>RMUSIC | A Review of my Favourite Music Albums</title>
+    <!-- 
+    
+   
+    -->
+    <style>
+      /* EXERCISE 1
+            For all Albums we'd like to have a consistent style.
+            Create a class for:
+            - The album container
+            - The album cover
+            - The album title
+            - The album group / singer / dj
+            - The album genre
+            - The album duration
+            - etc
+         */
+
+      nav {
+        background-position: center;
+        background-size: cover;
+        background-image: url("./images/bg.png");
+        background-color: #000000;
+      }
+
+      .slide {
+        background-position: center;
+        background-size: cover;
+        background-image: url("./images/bg.png");
+        background-color: #000000;
+        margin-top: 150px;
+      }
+
+      .about{
+        background-position: center;
+        background-size: cover;
+        background-image: url("https://images.unsplash.com/photo-1453090927415-5f45085b65c0?ixlib=rb-1.2.1&auto=format&fit=crop&w=731&q=80");
+        
+      }
+
+      .carousel-item {
+        height: 32rem;
+      }
+      .carousel-item > img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        min-width: 100%;
+        height: 32rem;
+      }
+      .album-container {
+        display: block;
+      }
+      .album-cover {
+        width: 300px;
+        height: 300px;
+      }
+      .album-title {
+        display: block;
+      }
+      .album-group {
+        display: block;
+      }
+      .album-genre {
+        display: block;
+      }
+      .album-duration {
+        display: block;
+      }
+      .col {
+        height: 6em;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- EXERCISE 2 
+            Implement a navigation bar using the bootstrap component
+            This navigation bar must be linked to every section in your page
+        -->
+    <header>
+      <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+        <div class="container">
+          <a class="navbar-brand" href="#"
+            ><img src="./images/logo.png" width="150"
+          /></a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="#"
+                  >HOME <span class="sr-only">(current)</span></a
+                >
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdown"
+                  role="button"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  ALBUMS BY GENRE
+                </a>
+                <div
+                  class="dropdown-menu bg-dark"
+                  aria-labelledby="navbarDropdown"
+                >
+                  <a class="dropdown-item text-light" href="#">POP/ROCK</a>
+                  <a class="dropdown-item text-light" href="#">R&B</a>
+                  <a class="dropdown-item text-light" href="#">BLUES</a>
+                  <a class="dropdown-item text-light" href="#">ROCK</a>
+                  <a class="dropdown-item text-light" href="#">COUNTRY</a>
+                  <a class="dropdown-item text-light" href="#">RAP</a>
+                  <a class="dropdown-item text-light" href="#">POP</a>
+                  <a class="dropdown-item text-light" href="#">JAZZ</a>
+                  <a class="dropdown-item text-light" href="#">ELECTRONIC</a>
+                  <a class="dropdown-item text-light" href="#">FOLK</a>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">ABOUT RMUSIC</a>
+              </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+              <label for="search" class="text-light pr-2">FIND MUSIC</label>
+              <input
+                id="search"
+                class="form-control mr-sm-2"
+                type="search"
+                placeholder="ALBUM OR ARTIST"
+                aria-label="Search"
+              />
+              <button
+                class="btn btn-outline-success my-2 my-sm-0"
+                type="submit"
+              >
+                Search
+              </button>
+            </form>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <div class="slide pb-5">
+        <div class="container">
+          <div
+            id="carouselExampleIndicators"
+            class="carousel"
+            data-ride="carousel"
+          >
+            <ol class="carousel-indicators">
+              <li
+                data-target="#carouselExampleIndicators"
+                data-slide-to="0"
+                class="active"
+              ></li>
+              <li
+                data-target="#carouselExampleIndicators"
+                data-slide-to="1"
+              ></li>
+              <li
+                data-target="#carouselExampleIndicators"
+                data-slide-to="2"
+              ></li>
+              <li
+                data-target="#carouselExampleIndicators"
+                data-slide-to="3"
+              ></li>
+              <li
+                data-target="#carouselExampleIndicators"
+                data-slide-to="4"
+              ></li>
+            </ol>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img
+                  src="https://images.unsplash.com/photo-1487215078519-e21cc028cb29?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80"
+                  class="d-block"
+                  alt="..."
+                  height="400vh"
+                />
+                <div class="carousel-caption d-none d-md-block text-light">
+                  <h1>RMUSIC<h1>
+                    <p class="lead">
+                      RMusic is an online platform that delivers new Nigerian hip-hop/contemporary music, videos, and music content daily to Nigerians by exposing remarkable artists to Nigerian/African music lovers around the world
+                    </p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img
+                  src="https://images.unsplash.com/photo-1471614654469-512ee6a4397a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80"
+                  class="d-block"
+                  alt="..."
+                  height="400vh"
+                />
+                <div class="carousel-caption d-none d-md-block text-light">
+                  <h1>RMUSIC<h1>
+                    <p class="lead">
+                      RMusic is an online platform that delivers new Nigerian hip-hop/contemporary music, videos, and music content daily to Nigerians by exposing remarkable artists to Nigerian/African music lovers around the world
+                    </p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img
+                  src="https://images.unsplash.com/photo-1478737270239-2f02b77fc618?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80"
+                  class="d-block"
+                  alt="..."
+                  height="400vh"
+                />
+                <div class="carousel-caption d-none d-md-block text-light">
+                  <h1>RMUSIC<h1>
+                    <p class="lead">
+                      RMusic is an online platform that delivers new Nigerian hip-hop/contemporary music, videos, and music content daily to Nigerians by exposing remarkable artists to Nigerian/African music lovers around the world
+                    </p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img
+                  src="https://images.unsplash.com/photo-1461784229652-c9271a46d4c4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80"
+                  class="d-block"
+                  alt="..."
+                  height="400vh"
+                />
+                <div class="carousel-caption d-none d-md-block text-light">
+                  <h1>RMUSIC<h1>
+                    <p class="lead">
+                      RMusic is an online platform that delivers new Nigerian hip-hop/contemporary music, videos, and music content daily to Nigerians by exposing remarkable artists to Nigerian/African music lovers around the world
+                    </p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img
+                  src="https://images.unsplash.com/photo-1487954152950-e0584673b7f3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80"
+                  class="d-block"
+                  alt="..."
+                  height="400vh"
+                />
+                <div class="carousel-caption d-none d-md-block text-light">
+                  <h1>RMUSIC<h1>
+                    <p class="lead">
+                      RMusic is an online platform that delivers new Nigerian hip-hop/contemporary music, videos, and music content daily to Nigerians by exposing remarkable artists to Nigerian/African music lovers around the world
+                    </p>
+                </div>
+              </div>
+            </div>
+            <a
+              class="carousel-control-prev"
+              href="#carouselExampleIndicators"
+              role="button"
+              data-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a
+              class="carousel-control-next"
+              href="#carouselExampleIndicators"
+              role="button"
+              data-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- EXERCISE 3
+            Create a responsive section for your favourite albums.
+            In this section you should have:
+            - 4 albums per row when the screen is very large
+            - 3 albums per row when you are on a tablet (or a smaller window)
+            - 2 albums per row when you are on a small screen
+        -->
+        <div class="album py-5 bg-light">
+          <div class="container">
+      
+            <div class="row">
+              
+              <div class="col-6 col-md-4 col-lg-3">
+                <div class="card mb-4 shadow-sm">
+                  <img
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ2oOeynBvdq50r90SPUiGu2anKgOPwG7VnqA&usqp=CAU"
+                  class="card-img-top"
+                  alt="..."
+                />
+                  
+                  <div class="card-body">
+                    <div class="card-body">
+                      <h5 class="card-title">Artist Name: Kiss Daniel</h5>
+                      <p class="card-text">Album Title: Mama</p>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div class="btn-group">
+                        <button type="button" class="btn btn-sm btn-outline-secondary">Review</button>
+                        <button type="button" class="btn btn-sm btn-outline-secondary">Play</button>
+                      </div>
+                      <small class="text-muted">Duration: 9 mins</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6 col-md-4 col-lg-3">
+                <div class="card mb-4 shadow-sm">
+                  <img
+                  src="https://i.pinimg.com/736x/68/1d/3c/681d3c05c3fd9ccbdcb94ba3cda8f37d.jpg"
+                  class="card-img-top "
+                  alt="..."
+                />
+                  <div class="card-body">
+                    <div class="card-body">
+                      <h5 class="card-title">Artist Name: Sammie Okposo</h5>
+                      <p class="card-text">Album Title: The glory is here</p>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div class="btn-group">
+                        <button type="button" class="btn btn-sm btn-outline-secondary">Review</button>
+                        <button type="button" class="btn btn-sm btn-outline-secondary">Play</button>
+                      </div>
+                      <small class="text-muted">Duration: 9 mins</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6 col-md-4 col-lg-3">
+                <div class="card mb-4 shadow-sm">
+                  <img
+                  src="https://i.pinimg.com/originals/36/10/c0/3610c0da4a15a94b0f506bda50b96328.jpg"
+                  class="card-img-top "
+                  alt="..."
+                />
+                  <div class="card-body">
+                    <div class="card-body">
+                      <h5 class="card-title">Artist Name: Debby Great</h5>
+                      <p class="card-text">Album Title: Nobody</p>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div class="btn-group">
+                        <button type="button" class="btn btn-sm btn-outline-secondary">Review</button>
+                        <button type="button" class="btn btn-sm btn-outline-secondary">Play</button>
+                      </div>
+                      <small class="text-muted">Duration: 9 mins</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+      
+              <div class="col-6 col-md-4 col-lg-3">
+                <div class="card mb-4 shadow-sm">
+                  <img
+                src="https://jaguda.com/wp-content/uploads/2014/04/Sean-Tizzle-The-Journey-album-cover-Art.jpg"
+                class="card-img-top "
+                alt="...."
+              />
+              <div class="card-body">
+                <div class="card-body">
+                  <h5 class="card-title">Artist Name: Sean Tizzle</h5>
+                  <p class="card-text">Album Title: The Journey</p>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">Review</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary">Play</button>
+                  </div>
+                  <small class="text-muted">Duration: 9 mins</small>
+                </div>
+              </div>
+                </div>
+              </div>
+              <div class="col-6 col-md-4 col-lg-3">
+                <div class="card mb-4 shadow-sm">
+                  <img
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ2oOeynBvdq50r90SPUiGu2anKgOPwG7VnqA&usqp=CAU"
+                  class="card-img-top"
+                  alt="..."
+                />
+                  
+                  <div class="card-body">
+                    <div class="card-body">
+                      <h5 class="card-title">Artist Name: Kiss Daniel</h5>
+                      <p class="card-text">Album Title: Mama</p>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div class="btn-group">
+                        <button type="button" class="btn btn-sm btn-outline-secondary">Review</button>
+                        <button type="button" class="btn btn-sm btn-outline-secondary">Play</button>
+                      </div>
+                      <small class="text-muted">Duration: 9 mins</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6 col-md-4 col-lg-3">
+                <div class="card mb-4 shadow-sm">
+                  <img
+                  src="https://i.pinimg.com/736x/68/1d/3c/681d3c05c3fd9ccbdcb94ba3cda8f37d.jpg"
+                  class="card-img-top "
+                  alt="..."
+                />
+                  <div class="card-body">
+                    <div class="card-body">
+                      <h5 class="card-title">Artist Name: Sammie Okposo</h5>
+                      <p class="card-text">Album Title: The glory is here</p>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div class="btn-group">
+                        <button type="button" class="btn btn-sm btn-outline-secondary">Review</button>
+                        <button type="button" class="btn btn-sm btn-outline-secondary">Play</button>
+                      </div>
+                      <small class="text-muted">Duration: 9 mins</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6 col-md-4 col-lg-3">
+                <div class="card mb-4 shadow-sm">
+                  <img
+                  src="https://i.pinimg.com/originals/36/10/c0/3610c0da4a15a94b0f506bda50b96328.jpg"
+                  class="card-img-top "
+                  alt="..."
+                />
+                  <div class="card-body">
+                    <div class="card-body">
+                      <h5 class="card-title">Artist Name: Debby Great</h5>
+                      <p class="card-text">Album Title: Nobody</p>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div class="btn-group">
+                        <button type="button" class="btn btn-sm btn-outline-secondary">Review</button>
+                        <button type="button" class="btn btn-sm btn-outline-secondary">Play</button>
+                      </div>
+                      <small class="text-muted">Duration: 9 mins</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+      
+              <div class="col-6 col-md-4 col-lg-3">
+                <div class="card mb-4 shadow-sm">
+                  <img
+                src="https://jaguda.com/wp-content/uploads/2014/04/Sean-Tizzle-The-Journey-album-cover-Art.jpg"
+                class="card-img-top "
+                alt="...."
+              />
+              <div class="card-body">
+                <div class="card-body">
+                  <h5 class="card-title">Artist Name: Sean Tizzle</h5>
+                  <p class="card-text">Album Title: The Journey</p>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">Review</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary">Play</button>
+                  </div>
+                  <small class="text-muted">Duration: 9 mins</small>
+                </div>
+              </div>
+                </div>
+              </div>
+              <div class="col-6 col-md-4 col-lg-3">
+                <div class="card mb-4 shadow-sm">
+                  <img
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ2oOeynBvdq50r90SPUiGu2anKgOPwG7VnqA&usqp=CAU"
+                  class="card-img-top"
+                  alt="..."
+                />
+                  
+                  <div class="card-body">
+                    <div class="card-body">
+                      <h5 class="card-title">Artist Name: Kiss Daniel</h5>
+                      <p class="card-text">Album Title: Mama</p>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div class="btn-group">
+                        <button type="button" class="btn btn-sm btn-outline-secondary">Review</button>
+                        <button type="button" class="btn btn-sm btn-outline-secondary">Play</button>
+                      </div>
+                      <small class="text-muted">Duration: 9 mins</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+    </main>
+
+    <!-- EXERCISE 4
+            Create a section for the album review.
+            Pick one of your fav albums, and create a section with:
+            - Cover
+            - Title
+            - Band
+            - Lenght
+            - Genre
+            - Tracklist
+            - ... And whatever you think it's interesting about it!
+        -->
+
+    <!-- EXERCISE 5
+            Worst album list! Find out the music you don't really like or you find overrated and list it
+            in this "hall of shame" chart!
+        -->
+
+    <!-- EXERCISE 6
+            Do you have any musician / band you admire or you are fan of?
+            This section is dedicated to him / her / them!
+            Feel free to experiment in this part of the page.
+        -->
+
+    <!-- EXERCISE 7
+            Just covers!
+            Create a tapestry of album pictures. Every album picture must be "square" (use CSS to do that).
+            Put at least 20 covers (also repeated) to have a nice effect and see how Bootstrap handles it.
+        -->
+
+    <!-- EXERCISE 8
+            Implement a footer with some information / social links
+        -->
+
+    <!-- EXTRA:
+         EXERCISE 9
+            Create album details that are going to be toggled on and off by clicking on the album image
+        -->
+
+    <!-- EXERCISE 10
+            Add a button to each section. By clicking on it the section body appears (if hidden) or disappears (if visible)
+        -->
+
+    <!--
+            EXERCISE 11
+            Add in the footer a field that counts, on page load, how many ALBUMS are on the page 
+        -->
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
