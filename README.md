@@ -1,3 +1,2 @@
-# Strive-School-Module2
-Module 2 Day 2 Homework
-A Music Review Website
+# Strive-School-M2-D2 Homework
+Creating a website to showcase your favourite music albums.
